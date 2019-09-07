@@ -5,10 +5,15 @@ const mysql = require('promise-mysql');
 
 class Model {
 
+    // Static GET methods
     static get AND() {return "AND"};
     static get OR() {return "OR"};
     static get ASC() {return "ASC"};
     static get DESC() {return "DESC"};
+    static get INTEGER() {return "number"};
+    static get STRING() {return "string"};
+    static get BOOLEAN() {return "boolean"};
+    // The end of it...
 
     /**
      * 

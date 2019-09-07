@@ -49,7 +49,7 @@ class User extends Model {
 - [orderBy](#orderBy)
 - [limit](#limit)
 - [toString](#toString)
-- [execute (async)](#execute)
+- [execute (async)](#execute%20async)
 
 ### create
 > create(hashmap={})

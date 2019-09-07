@@ -17,6 +17,11 @@
   "author": "Olayinka Okewale (okjool2012@gmail.com)",
   "license": "MIT",
   "devDependencies": {
-    "promise-mysql": "^4.1.0"
+    "eslint": "^6.3.0",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "promise-mysql": "^4.1.0",
+    "sqlstring": "^2.3.1"
   }
 }
