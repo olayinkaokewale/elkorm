@@ -1,0 +1,22 @@
+{
+  "name": "elkorm",
+  "version": "0.0.1",
+  "description": "Elk ORM is a model implementation library for your Node JS projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest test"
+  },
+  "keywords": [
+    "ORM",
+    "Database",
+    "Data",
+    "Model",
+    "SQL",
+    "NoSQL"
+  ],
+  "author": "Olayinka Okewale (okjool2012@gmail.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "promise-mysql": "^4.1.0"
+  }
+}
