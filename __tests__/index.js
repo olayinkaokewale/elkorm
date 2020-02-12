@@ -18,3 +18,14 @@ it('expects model to be initialized and successfully generate insert query', () 
     expect(newUser.toString()).toBe(expectedQuery);
 });
 
+it('expects model to execute', async () => {
+    const newUser = user.create({
+        username: "okjool",
+        password: "123456",
+        fullname: "Olayinka Okewale"
+    });
+    // const expectedQuery = "INSERT INTO users (username,password,fullname) VALUES ('okjool','123456','Olayinka Okewale')";
+    const result = await user.execute();
+    console.log("Result =>", result);
+    // expect(newUser.toString()).toBe(expectedQuery);
+});

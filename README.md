@@ -4,8 +4,46 @@ ElkORM is a library for Node JS/Express JS projects which would help in the elim
 It is basically an ORM (Object Relational Mapping) library limited to **MySQL** for now but plans are in place to extend to other SQL and NoSQL types in the future.
 
 ## Installation
-Install via NPM using the command below:
+**STEP 1**: Install via NPM using the command below:
 > npm install elkorm@latest
+
+**STEP 2**: In your project, you can either create a `.env` file or create an `elkorm.json` file having the following keys with their respective values: 
+
+
+| Key | Description |
+|-----------------|--------------------|
+| ELK_DATABASE | Type of database being used. e.g. mysql, postgre, mssql, etc. Defaults to mysql |
+| ELK_USER | Username of the database |
+| ELK_PASS | Password of the database |
+| ELK_HOST | Database host e.g. localhost |
+| ELK_DB_NAME | Database name |
+| ELK_PORT | Database port. Defaults to 3306 |
+
+Example of a `.env` file:
+```env
+...
+
+ELK_DATABASE=mysql
+ELK_USER=root
+ELK_PASS=
+ELK_HOST=localhost
+ELK_DB_NAME=elkorm_db
+ELK_PORT=3306
+
+...
+```
+
+Example of a `elkorm.json` file:
+```json
+{
+    "ELK_DATABASE": "mysql",
+    "ELK_USER": "root",
+    "ELK_PASS": "",
+    "ELK_HOST": "localhost",
+    "ELK_DB_NAME": "elkorm_db",
+    "ELK_PORT": 3306
+}
+```
 
 ## Usage
 Include this library into your project by importing or requiring it. Check the example below:
@@ -242,7 +280,7 @@ const user = new User(); // <-- This is the User model we created earlier.
 user.read(["id","username","fullname"]).where({
     username: "okjool",
     password: "914b9c17b4ea373bc4981bbf867df186"
-}).and({
+}).or({
     email: "olayinkaokewale@gmail.com"
     password: "914b9c17b4ea373bc4981bbf867df186"
 });
@@ -272,7 +310,7 @@ const user = new User(); // <-- This is the User model we created earlier.
 user.read(["id","username","fullname"]).where({
     username: "okjool",
     password: "914b9c17b4ea373bc4981bbf867df186"
-}).and({
+}).or({
     email: "olayinkaokewale@gmail.com"
     password: "914b9c17b4ea373bc4981bbf867df186"
 }).orderBy({id: User.ASC, username: User.DESC});
@@ -341,7 +379,7 @@ This method is used at the end of every chain to execute the query that has been
 See example below:
 
 ```js
-onst user = new User(); // <-- This is the User model we created earlier.
+const user = new User(); // <-- This is the User model we created earlier.
 
 // Implementation 1:
 const selectUser = user.read(["id","username","fullname"]).where({
@@ -367,9 +405,14 @@ selectUser.execute()
 ```
 
 ## Contributing
-This project was started by [Olayinka Okewale](https://github.com/olayinkaokewale)
-on 15th August, 2019. If you'd love to contribute to this project fork, add your code and create a pull request. Also, you can contact me on
-[okjool2012@gmail.com](mailto:okjool2012@gmail.com)
+To contribute to this project please follow the steps below:
+1. Open an issue and discuss what feature you think needed to be added and check if nobody is already working on that feature.
+2. Fork this repository and run `docker-compose up -d` to spin off the docker container needed to run the test-cases included.
+3. Include a documentation regarding the feature change
+4. Create a pull request and wait for your change to be accepted and integrated to this project.
+
+<!-- NOTE: This project was started by [Olayinka Okewale](https://github.com/olayinkaokewale)
+on 15th August, 2019. If you'd love to contribute to this project fork, add your code and create a pull request. Also, you can send me a mail at [okjool2012@gmail.com](mailto:okjool2012@gmail.com) -->
 
 ## Support Us
 If you like this project please give a star and follow me on my social media networks.

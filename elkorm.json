@@ -1,0 +1,8 @@
+{
+    "ELK_DATABASE": "mysql",
+    "ELK_USER": "root",
+    "ELK_PASS": "",
+    "ELK_HOST": "localhost",
+    "ELK_DB_NAME": "elkorm_db",
+    "ELK_PORT": 3306
+}

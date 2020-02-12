@@ -1,0 +1,18 @@
+version: '3'
+services: 
+    mariadb:
+        image: mariadb
+        volumes:
+            - elkormdb-data:/var/lib/mysql
+        environment: 
+            TZ: "Africa/Lagos"
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+            MYSQL_ROOT_PASSWORD: ""
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+        ports: 
+            - 3306:3306
+
+volumes: 
+    elkormdb-data: {}

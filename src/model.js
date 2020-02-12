@@ -1,6 +1,6 @@
 const { Q } = require("./utils/global"); // Import all the global functions.
-
-const mysql = require('promise-mysql');
+const Executor = require("./utils/executor");
+const executor = new Executor();
 
 
 class Model {
@@ -201,11 +201,9 @@ class Model {
      * Execute method to return back the executed query.
      */
     async execute() {
-        try {
-
-        } catch(err) {
-            console.log("Execute error =>", err);
-        }
+        const query = this.query;
+        const result = await executor.execute(query);
+        return result;
     }
 
 }
