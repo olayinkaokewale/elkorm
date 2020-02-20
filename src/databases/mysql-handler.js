@@ -10,6 +10,7 @@ class MysqlHandler {
     async execute(str) {
         const req = await db.createConnection(this.connectionOption);
         const res = await req.query(str);
+        req.end();
         return res;
     }
 }

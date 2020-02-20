@@ -4,7 +4,8 @@
   "description": "Elk ORM is a model implementation library for your Node JS projects",
   "main": "index.js",
   "scripts": {
-    "test": "jest test"
+    "test": "jest --watchAll",
+    "buildTest": "mkdir dist && cd ./dist && npm pack ../ || cd ./dist && npm pack ../"
   },
   "keywords": [
     "ORM",
@@ -16,6 +17,12 @@
   ],
   "author": "Olayinka Okewale (okjool2012@gmail.com)",
   "license": "MIT",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "src"
+  ],
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "eslint": "^6.3.0",
