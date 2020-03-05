@@ -77,7 +77,7 @@ class Model {
      * @param {Object} hashmap example: {username: "okjool", firstname: "Olayinka"}
      */
     update(hashmap={}) {
-        this.query = `UPDATE ${this.table} SET (${this.generateList(hashmap).join(",")})`;
+        this.query = `UPDATE ${this.table} SET ${this.generateList(hashmap).join(",")}`;
         return this;
     }
 
@@ -153,8 +153,8 @@ class Model {
      * @param {Integer} limit the limit of the selected rows
      * @param {Integer} offset the starting position of the rows to be selected from.
      */
-    limit(limit=0,offset=0) {
-        this.query = `${this.query} LIMIT ${limit},${offset}`;
+    limit(limit=1,offset=0) {
+        this.query = `${this.query} LIMIT ${offset},${limit}`;
         return this;
     }
 
