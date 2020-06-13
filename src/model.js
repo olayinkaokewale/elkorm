@@ -206,6 +206,14 @@ class Model {
         return result;
     }
 
+    /**
+     * run raw sql query
+    */
+    static async runSql(query) {
+        const result = await executor.execute(query);
+        return result;
+    }
+
 }
 
 module.exports = Model;

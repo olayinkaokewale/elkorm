@@ -1,4 +1,4 @@
-# ElkORM _(v 0.0.1)_
+# ElkORM _(v 0.0.2)_
 ElkORM is a library for Node JS/Express JS projects which would help in the elimination of SQL queries in codes (cleaner codes). 
 
 It is basically an ORM (Object Relational Mapping) library limited to **MySQL** for now but plans are in place to extend to other SQL and NoSQL types in the future.
@@ -87,7 +87,8 @@ class User extends Model {
 - [orderBy](#orderBy)
 - [limit](#limit)
 - [toString](#toString)
-- [execute (async)](#execute%20async)
+- [execute (async)](#execute-async)
+- [runSql (static async method)](#runSql-static-async-method)
 
 ### create
 > create(hashmap={})
@@ -391,6 +392,30 @@ const selectUser = user.read(["id","username","fullname"]).where({
 }).orderBy({id: User.ASC, username: User.DESC}).limit(1,10);
 
 selectUser.execute()
+.then(data => {
+    console.log(data); // <-- You can view what is in your data.
+    /**
+     * Note that data will contain different structure based on 
+     * the type of query you are running. create, read, update,
+     * or delete
+     */
+})
+.catch(error => {
+    console.log(error); // <-- Always good to log errors.
+})
+```
+
+### runSql _(static async method)_
+> runsql(query)
+
+This method is a static one which allows raw query to be ran in your database. It is an async method that returns either a success or failed promise.
+
+See example below:
+
+```js
+const Model = require('elkorm');
+
+Model.runSql("SELECT * FROM users")
 .then(data => {
     console.log(data); // <-- You can view what is in your data.
     /**
