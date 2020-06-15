@@ -1,6 +1,6 @@
 {
   "name": "elkorm",
-  "version": "0.0.2",
+  "version": "0.0.21",
   "description": "Elk ORM is a model implementation library for your Node JS projects",
   "main": "index.js",
   "scripts": {
