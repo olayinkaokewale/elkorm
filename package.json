@@ -7,6 +7,10 @@
     "test": "jest --watchAll",
     "buildTest": "mkdir dist && cd ./dist && npm pack ../ || cd ./dist && npm pack ../"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olayinkaokewale/elkorm.git"
+  },
   "keywords": [
     "ORM",
     "Database",
